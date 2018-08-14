@@ -1,7 +1,13 @@
 <main>
   <div class="contents">
     <%= @articles.each do |article| %>
-      <p><%= article.content %></p>
+      <div class="article-title">
+        <h3><%= article.title %></h3>
+      </div>
+      <div class="article-date-time">
+        <%= article.date_time %>
+      <div>
+      <p><%= simple_format(article.content) %></p>
     <% end %>
   </div>
 </main>
