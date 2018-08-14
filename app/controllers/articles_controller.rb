@@ -4,5 +4,6 @@ class ArticlesController < ApplicationController
   end
 
   def new
+    @articles = Article.all
   end
 end
