@@ -20,21 +20,31 @@
 
   <body>
     <header>
-      <nav class="light-blue lighten-2">
+      <nav class="">
         <div class="nav-wrapper">
-          <a href="#" class="brand-logo">BLOG TITLE</a>
-          <ul id="nav-mobile" class="right hide-on-med-and-down">
-            <li><a href="sass.html">ログイン</a></li>
-            <li><a href="badges.html">新規登録</a></li>
-          </ul>
+          <a href="/" class="brand-logo">BLOG TITLE</a>
+
+          <% if user_signed_in? %>
+            <ul id="nav-mobile" class="right hide-on-med-and-down">
+              <li><a href="/users/sign_in">マイページ</a></li>
+              <li><%= link_to "ログアウト", destroy_user_session_path, method: :delete %></li>
+            </ul>
+          <% else %>
+            <ul id="nav-mobile" class="right hide-on-med-and-down">
+              <li><a href="/users/sign_in">ログイン</a></li>
+              <li><a href="/users/sign_up">新規登録</a></li>
+            </ul>
+          <% end %>
         </div>
       </nav>
     </header>
 
     <%= yield %>
 
-    <footer>
-      Copyright blogapp 2018.
+    <footer class="page-footer">
+      <div class="footer-copyright">
+        © 2018 BLOG APP Copyright.
+      </div>
     </footer>
 
     <script type="text/javascript" src="./app.js"></script>
