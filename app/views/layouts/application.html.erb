@@ -26,7 +26,8 @@
 
           <% if user_signed_in? %>
             <ul id="nav-mobile" class="right hide-on-med-and-down">
-              <li><a href="/users/sign_in">マイページ</a></li>
+              <li><a href="/users/<%= current_user.id %>">マイページ</a></li>
+              <li><a href="/articles/new">投稿する</a></li>
               <li><%= link_to "ログアウト", destroy_user_session_path, method: :delete %></li>
             </ul>
           <% else %>
