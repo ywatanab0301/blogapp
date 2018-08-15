@@ -6,7 +6,7 @@
             <h6><%= article.title %></h6>
             <p><%= article.content %></p>
             <ul>
-              <li><a href="articles/#{article.id}/edit" class="waves-effect waves-teal btn-flat">編集</a></li>
+              <li><a href="/articles/<%= article.id %>/edit" class="waves-effect waves-teal btn-flat">編集</a></li>
               <li><a href="" class="waves-effect waves-teal btn-flat">削除</a></li>
             </ul>
           </div>
