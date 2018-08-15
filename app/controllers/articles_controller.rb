@@ -7,8 +7,12 @@ class ArticlesController < ApplicationController
     @article = Article.new
   end
 
+  def create
+    @article = Article.create(title: articles_params[:title], content: articles_params[:content], user_id: current_user.id)
+  end
+
   private
   def articles_params
-    params.permit(:title, :content)
+    params.require(:article).permit(:title, :content)
   end
 end
