@@ -8,6 +8,6 @@ class ArticlesController < ApplicationController
 
   private
   def articles_params
-    params.permit(:title, :cotent)
+    params.permit(:title, :content)
   end
 end
