@@ -5,4 +5,9 @@ class ArticlesController < ApplicationController
 
   def new
   end
+
+  private
+  def articles_params
+    params.permit(:title, :cotent)
+  end
 end
