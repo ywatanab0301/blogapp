@@ -3,6 +3,6 @@
     <p>作成日時:<%= article.created_at %></p>
     <p><%= article.user.username %>さんの記事</p>
     <h5>【<%= article.title %>】</h5>
-    <p><%= article.content %></p>
+    <p><%= simple_format(article.content) %></p>
   </div>
 </div>
