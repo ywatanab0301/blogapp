@@ -20,30 +20,32 @@
 
   <body>
     <header>
-      <nav class="">
-        <div class="nav-wrapper">
-          <a href="/" class="brand-logo">BLOG TITLE</a>
+      <div class="navbar-fixed">
+        <nav class="blue lighten-2">
+          <div class="nav-wrapper">
+            <a href="/" class="brand-logo center-align">BLOG TITLE</a>
 
-          <% if user_signed_in? %>
-            <ul id="nav-mobile" class="right hide-on-med-and-down">
-              <li><a href="/users/<%= current_user.id %>">マイページ</a></li>
-              <li><a href="/articles/new">投稿する</a></li>
-              <li><%= link_to "ログアウト", destroy_user_session_path, method: :delete %></li>
-            </ul>
-          <% else %>
-            <ul id="nav-mobile" class="right hide-on-med-and-down">
-              <li><a href="/users/sign_in">ログイン</a></li>
-              <li><a href="/users/sign_up">新規登録</a></li>
-            </ul>
-          <% end %>
-        </div>
-      </nav>
+            <% if user_signed_in? %>
+              <ul id="nav-mobile" class="right hide-on-med-and-down">
+                <li><a href="/users/<%= current_user.id %>">マイページ</a></li>
+                <li><a href="/articles/new">投稿する</a></li>
+                <li><%= link_to "ログアウト", destroy_user_session_path, method: :delete %></li>
+              </ul>
+            <% else %>
+              <ul id="nav-mobile" class="right hide-on-med-and-down">
+                <li><a href="/users/sign_in">ログイン</a></li>
+                <li><a href="/users/sign_up">新規登録</a></li>
+              </ul>
+            <% end %>
+          </div>
+        </nav>
+      </div>
     </header>
 
     <%= yield %>
 
-    <footer class="page-footer">
-      <div class="footer-copyright">
+    <footer class="page-footer blue lighten-2">
+      <div class="center-align">
         © 2018 BLOG APP Copyright.
       </div>
     </footer>
