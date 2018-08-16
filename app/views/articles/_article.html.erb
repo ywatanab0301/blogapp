@@ -4,5 +4,13 @@
     <p><%= article.user.username %>さんの記事</p>
     <h5>【<%= article.title %>】</h5>
     <p><%= simple_format(article.content) %></p>
+    <% if user_signed_in? && current_user.id == article.user_id %>
+      <ul>
+        <li class="edit-delete-button"><a href="/articles/<%= article.id %>/edit" class="waves-effect waves-teal btn-flat">編集</a></li>
+        <li>
+          <%= link_to '削除', "/articles/#{article.id}", :class => "edit-delete-button waves-effect waves-teal btn-flat", method: :delete %>
+        </li>
+      </ul>
+    <% end %>
   </div>
 </div>

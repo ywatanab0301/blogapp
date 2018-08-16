@@ -5,14 +5,7 @@
 
       <%= render partial: "articles/article", locals: { article: article } %>
 
-            <ul>
-              <li><a href="/articles/<%= article.id %>/edit" class="waves-effect waves-teal btn-flat">編集</a></li>
-              <li>
-                <%= link_to '削除', "/articles/#{article.id}", :class => "waves-effect waves-teal btn-flat", method: :delete %>
-              </li>
-            </ul>
-          </div>
-        </div>
     <% end %>
+    <%= paginate(@articles) %>
   </div>
 </main>

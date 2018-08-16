@@ -3,7 +3,7 @@ class ArticlesController < ApplicationController
   before_action :move_to_index, except: :index
 
   def index
-    @articles = Article.includes(:user)
+    @articles = Article.includes(:user).page(params[:page]).per(6)
   end
 
   def new

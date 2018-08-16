@@ -14,10 +14,8 @@
 ActiveRecord::Schema.define(version: 20180815082028) do
 
   create_table "articles", force: :cascade do |t|
-    t.string   "name",       limit: 255
     t.string   "title",      limit: 255
-    t.datetime "date_time"
-    t.string   "content",    limit: 255
+    t.text     "content",    limit: 65535
     t.integer  "user_id",    limit: 4
     t.datetime "created_at"
     t.datetime "updated_at"

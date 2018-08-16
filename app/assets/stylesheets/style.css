@@ -7,3 +7,12 @@ body {
   main {
     flex: 1 0 auto;
   }
+
+.pagination {
+  background-color: #90caf9;
+  text-align: center;
+}
+
+.edit-delete-button {
+  float: left;
+}
