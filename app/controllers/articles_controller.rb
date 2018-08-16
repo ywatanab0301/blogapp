@@ -20,6 +20,11 @@ class ArticlesController < ApplicationController
     article.update(articles_params) if current_user.id == article.user_id
   end
 
+  def destroy
+    article = Article.find(params[:id])
+    article.destroy if current_user.id == article.user_id
+  end
+
   private
   def articles_params
     params.require(:article).permit(:title, :content)

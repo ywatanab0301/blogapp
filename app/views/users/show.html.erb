@@ -7,7 +7,9 @@
             <p><%= article.content %></p>
             <ul>
               <li><a href="/articles/<%= article.id %>/edit" class="waves-effect waves-teal btn-flat">編集</a></li>
-              <li><a href="" class="waves-effect waves-teal btn-flat">削除</a></li>
+              <li>
+                <%= link_to '削除', "/articles/#{article.id}", :class => "waves-effect waves-teal btn-flat", method: :delete %>
+              </li>
             </ul>
           </div>
         </div>
