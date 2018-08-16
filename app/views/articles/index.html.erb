@@ -3,7 +3,9 @@
     <% @articles.each do |article| %>
         <div class="input-field col s6">
           <div class="card-panel hoverable">
-            <h6><%= article.title %></h6>
+            <p>作成日時:<%= article.created_at %></p>
+            <p><%= article.user.username %>さんの記事</p>
+            <h5>【<%= article.title %>】</h5>
             <p><%= article.content %></p>
           </div>
         </div>
