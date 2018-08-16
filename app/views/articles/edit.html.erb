@@ -1,0 +1,11 @@
+<div class="row">
+  <%= form_for(@article) do |f| %>
+    <form class="col s12">
+        <div class="input-field col s12">
+          <%= f.text_field :title, :placeholder => "タイトル" %>
+          <%= f.text_area :content, :placeholder => "記事本文" %>
+          <%= f.submit "編集する" %>
+        </div>
+    </form>
+  <% end %>
+</div>
