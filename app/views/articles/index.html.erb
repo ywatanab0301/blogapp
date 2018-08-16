@@ -3,5 +3,8 @@
     <% @articles.each do |article| %>
       <%= render partial: "article", locals: { article: article } %>
     <% end %>
+    <div class="blue lighten-2">
+      <%= paginate(@articles) %>
+    </div>
   </div>
 </main>
