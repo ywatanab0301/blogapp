@@ -1,5 +1,5 @@
 <div class="input-field col s6">
-  <div class="card-panel hoverable">
+  <div class="card-panel hoverable pink lighten-5">
       <p>作成日時:<%= @article.created_at %></p>
       <p>
         <strong><%= link_to @article.user.username, "/users/#{@article.user_id}" %></strong>さんの記事
@@ -8,33 +8,31 @@
       <p><%= simple_format(@article.content) %></p>
       <ul>
         <% if user_signed_in? && current_user.id == @article.user_id %>
-        <li class="detail-edit-delete-button"><a href="/articles/<%= @article.id %>/edit" class="waves-effect waves-teal btn-flat">編集</a></li>
+        <li class="detail-edit-delete-button"><a href="/articles/<%= @article.id %>/edit" class="btn pink lighten-3">編集</a></li>
         <li>
-          <%= link_to '削除', "/articles/#{@article.id}", :class => "detail-edit-delete-button waves-effect waves-teal btn-flat", method: :delete %>
+          <%= link_to '削除', "/articles/#{@article.id}", :class => "detail-edit-delete-button btn pink lighten-3", method: :delete %>
         </li>
       </ul>
     <% end %>
-  </div>
-</div>
-
-
-<div class="container">
-  <% if current_user %>
-    <%= form_for @comment, :url => "/articles/#{@article.id}/comments" do |f| %>
-      <%= f.text_area :text, :placeholder => "コメントを入力する", :size => "100x80" %>
-      <%= f.submit "コメントする" %>
-    <% end %>
-  <% end %>
-
-  <div class="comments">
-      <h5>＜コメント一覧＞</h5>
-      <% if @comments %>
-        <% @comments.each do |comment| %>
-          <p>
-            <strong><%= link_to comment.user.username, "/users/#{comment.user_id}" %>:</strong>
-          <%= comment.text %>
-          </p>
+        <div class="comment-container">
+      <% if current_user %>
+        <%= form_for @comment, :url => "/articles/#{@article.id}/comments" do |f| %>
+          <%= f.text_area :text, :placeholder => "コメントを入力する", :size => "100x80" %>
+          <%= f.submit "コメントする" %>
         <% end %>
       <% end %>
+
+      <div class="comments">
+          <h6>＜コメント一覧＞</h6>
+          <% if @comments %>
+            <% @comments.each do |comment| %>
+              <p>
+                <strong><%= link_to comment.user.username, "/users/#{comment.user_id}" %>:</strong>
+              <%= comment.text %>
+              </p>
+            <% end %>
+          <% end %>
+      </div>
+    </div>
   </div>
 </div>

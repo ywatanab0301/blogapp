@@ -1,9 +1,9 @@
 <div class="row">
   <%= form_for(@article) do |f| %>
     <form class="col s12">
-        <div class="input-field col s12">
+        <div class="input-field col s12 pink lighten-5">
           <%= f.text_field :title, :placeholder => "タイトル" %>
-          <%= f.text_area :content, :placeholder => "記事本文" %>
+          <%= f.text_area :content, :placeholder => "記事本文", :size => "100x80" %>
           <%= f.submit "編集する" %>
         </div>
     </form>

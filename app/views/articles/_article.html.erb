@@ -1,21 +1,24 @@
 <div class="input-field col s6">
-  <div class="card-panel hoverable">
-      <p>作成日時:<%= article.created_at %></p>
-      <p>
-        <strong>
-          <%= link_to article.user.username, "/users/#{article.user.id}" %></strong>さんの記事
-      </p>
-      <h5>【<%= article.title %>】</h5>
-      <p><%= simple_format(article.content) %></p>
-        <ul>
-            <li class="detail-edit-delete-button"><a href="/articles/<%= article.id %>" class="waves-effect waves-teal btn-flat">詳細</a>
-          </li>
-      <% if user_signed_in? && current_user.id == article.user_id %>
-          <li class="detail-edit-delete-button"><a href="/articles/<%= article.id %>/edit" class="waves-effect waves-teal btn-flat">編集</a></li>
-          <li>
-            <%= link_to '削除', "/articles/#{article.id}", :class => "detail-edit-delete-button waves-effect waves-teal btn-flat", method: :delete %>
-          </li>
-        </ul>
-    <% end %>
+  <div class="contents-box">
+    <div class="card-panel hoverable pink lighten-5">
+        <h5>【<%= article.title %>】</h5>
+        <p>  作成日時:<%= article.created_at %></p>
+        <p>
+          <strong>
+            <%= link_to article.user.username, "/users/#{article.user.id}" %></strong>さんの記事
+        </p>
+        <p><%= simple_format(article.content) %></p>
+          <ul>
+              <li class="detail-edit-delete-button"><a href="/articles/<%= article.id %>" class="btn pink lighten-3">詳細</a>
+            </li>
+        <% if user_signed_in? && current_user.id == article.user_id %>
+            <li class="detail-edit-delete-button"><a href="/articles/<%= article.id %>/edit" class="btn pink lighten-3">編集</a></li>
+            <li>
+              <%= link_to '削除', "/articles/#{article.id}", :class => "detail-edit-delete-button btn pink lighten-3", method: :delete %>
+            </li>
+          </ul>
+      <% end %>
+      <p class="clearfix"></p>
+    </div>
   </div>
 </div>

@@ -9,10 +9,18 @@ body {
   }
 
 .pagination {
-  background-color: #90caf9;
+  background-color: #7986cb;
   text-align: center;
 }
 
 .detail-edit-delete-button {
   float: left;
+}
+
+.clearfix {
+  clear: both;
+}
+
+.comment-container {
+  padding-top: 70px;
 }
