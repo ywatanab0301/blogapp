@@ -1,6 +1,6 @@
 class ArticlesController < ApplicationController
 
-  before_action :move_to_index, except: :index
+  before_action :move_to_index, except: [:index, :show]
 
   def index
     @articles = Article.includes(:user).page(params[:page]).per(6)
@@ -8,6 +8,13 @@ class ArticlesController < ApplicationController
 
   def new
     @article = Article.new
+  end
+
+  def show
+    @article = Article.find(params[:id])
+    @comments = @article.comments.includes(:user)
+    @comment = Comment.new
+
   end
 
   def create
