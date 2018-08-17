@@ -1,10 +1,10 @@
 <div class="input-field col s6">
   <div class="card-panel hoverable pink lighten-5">
+      <h5>【<%= @article.title %>】</h5>
       <p>作成日時:<%= @article.created_at %></p>
       <p>
         <strong><%= link_to @article.user.username, "/users/#{@article.user_id}" %></strong>さんの記事
         </p>
-      <h5>【<%= @article.title %>】</h5>
       <p><%= simple_format(@article.content) %></p>
       <ul>
         <% if user_signed_in? && current_user.id == @article.user_id %>
