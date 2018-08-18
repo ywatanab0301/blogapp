@@ -2,7 +2,11 @@
   <div class="contents-box">
     <div class="card-panel hoverable pink lighten-5">
         <h5>【<%= article.title %>】</h5>
-        <p>  作成日時:<%= article.created_at %></p>
+        <% if article.created_at == article.updated_at %>
+          <p>  作成日時:<%= article.created_at %></p>
+        <% else %>
+          <p>  更新日時:<%= article.updated_at %></p>
+        <% end %>
         <p>
           <strong>
             <%= link_to article.user.username, "/users/#{article.user.id}" %></strong>さんの記事

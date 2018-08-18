@@ -14,7 +14,6 @@ class ArticlesController < ApplicationController
     @article = Article.find(params[:id])
     @comments = @article.comments.includes(:user)
     @comment = Comment.new
-
   end
 
   def create
